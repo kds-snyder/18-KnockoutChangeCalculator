@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Change Calculator</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="container">
+      <h1>Change Calculator!</h1>
+      <!--Row with amount due and amount received -->
+      <div class="well">
+        <div class="row">
+          <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+            <div class="form-group">
+              <label for="amountDueForSale">Enter the amount due for the sale:</label>
+              <input data-bind="textInput: amountDueForSale" type="amount" class="form-control" id="amountDueForSale" placeholder="Enter a positive number with no more than two decimal places">
+            </div>
+          </div>
+          <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+            <div class="form-group">
+              <label for="amountReceived">Enter the amount the customer has given you:</label>
+              <input data-bind="textInput: amountReceived" type="amount" class="form-control" id="amountReceived" placeholder="Enter a positive number with no more than two decimal places">
+            </div>
+          </div>
+        </div>
+
+        <!--Row with total change amount-->
+          <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+              <div data-bind="visible: !isNaN(changeAmount()) && changeAmount() >= 0">
+                <h4 class="text-center">Change to give: <span data-bind="text: formattedChange"></span></h4>
+              </div>
+            </div>
+          </div>
+      </div>
+
+      <!--Row with number of dollars in change-->
+      <div class="well">
+        <div class="row">
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <h4 class="text-center">Dollars</h4>
+            <h4 class="text-center"><span data-bind="text: dollars"></span></h4>
+          </div>
+        </div>
+      </div>
+
+      <!--Row with numbers of coins in change-->
+      <div class="well">
+        <div class="row">
+          <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
+            <h4 class="text-center">Quarters</h4>
+            <h4 class="text-center"><span data-bind="text: quarters"></span></h4>
+          </div>
+          <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
+            <h4 class="text-center">Dimes</h4>
+            <h4 class="text-center"><span data-bind="text: dimes"></span></h4>
+          </div>
+          <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
+            <h4 class="text-center">Nickels</h4>
+            <h4 class="text-center"><span data-bind="text: nickels"></span></h4>
+          </div>
+          <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
+            <h4 class="text-center">Pennies</h4>
+            <h4 class="text-center"><span data-bind="text: pennies"></span></h4>
+          </div>
+       </div>
+      </div>
+
+    </div>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/knockout.js" type="text/javascript"></script>
+    <script src="js/app/App.js" type="text/javascript"></script>
+  </body>
+</html>
